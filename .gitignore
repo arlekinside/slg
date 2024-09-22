@@ -1,0 +1,10 @@
+# Folders
+.idea
+.gradle
+postgres_data
+build
+**/gradle/wrapper
+
+#Files
+*.iml
+application-prod.yml

@@ -16,4 +16,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: C:\Users\bohdank\Personal\slg\postgres_data
+      device: postgres_data

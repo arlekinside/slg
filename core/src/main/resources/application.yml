@@ -1,5 +1,5 @@
 spring:
-  profiles:
-    default: "dev"
   application:
     name: "core"
+  profiles:
+    default: "dev"

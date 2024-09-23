@@ -1,6 +1,10 @@
 package com.github.arlekinside.slg.core.services
 
+import com.github.arlekinside.slg.core.aspects.Timed
+
 interface BalanceService {
 
-    fun updateBalance(userId: Long, amount: Double): Double
+    @Timed
+    fun updateBalance(data: Map<Int, Int>): Map<Int, Int>
+
 }

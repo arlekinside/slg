@@ -19,15 +19,13 @@ open class DefaultBalanceProcessor(
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     override suspend fun submitBalance(userId: Int, amount: Int): User? = withContext(Dispatchers.IO) {
         val user = User(userId, amount)
-        val updateCount: Long
-
         try {
 
-            if (userRepo.existsById(user.id)) {
-                updateCount = userRepo.updateUserByBalanceById(user.id, user.balance)
+            val updateCount = if (userRepo.existsById(user.id)) {
+                userRepo.updateUserByBalanceById(user.id, user.balance)
             } else {
                 // userRepo.save() behaves strange for pre-defined IDs https://github.com/spring-projects/spring-data-r2dbc/issues/738
-                updateCount = userRepo.insertUser(user.id, user.name, user.balance)
+                userRepo.insertUser(user.id, user.name, user.balance)
             }
 
             if (updateCount <= 0) {

@@ -1,17 +1,24 @@
 package com.github.arlekinside.slg.core.entities
 
-import jakarta.persistence.*
+import jakarta.persistence.Entity
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 
 @Entity
 @Table(name = "users")
 class User(
+
+    @jakarta.persistence.Id
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+    var id: Int,
 
-    @Column(name = "username")
-    var username: String,
+    @Column
+    var balance: Int = 0
 
-    @Column(name = "balance")
-    var balance: Double
-)
+) {
+
+    @Column
+    var name: String = "username$id"
+
+}

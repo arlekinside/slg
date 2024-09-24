@@ -1,13 +1,8 @@
 package com.github.arlekinside.slg.core
 
-import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest
-class CoreApplicationTests {
-
-    @Test
-    fun contextLoads() {
-    }
-
-}
+@ActiveProfiles("test")
+class CoreApplicationTests

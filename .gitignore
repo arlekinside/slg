@@ -6,5 +6,4 @@ build
 **/gradle/wrapper
 
 #Files
-*.iml
 application-prod.yml

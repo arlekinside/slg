@@ -12,9 +12,8 @@ class BalanceController(
     val balanceService: BalanceService
 ) {
 
-    @PostMapping
-    fun updateBalance(@RequestBody data: Map<Long, Double>) {
-        data.forEach { (id, balance) -> balanceService.updateBalance(id, balance) }
-    }
+    @PostMapping("/set-users-balance")
+    // The map could be replaced with an InputStream in case a million of users is to be updated
+    fun updateBalance(@RequestBody data: Map<Int, Int>): Map<Int, Int> = balanceService.updateBalance(data)
 
 }

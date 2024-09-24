@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  docker:
+    compose:
+      skip:
+        in-tests: false
+      file: "../docker-compose.yml"
